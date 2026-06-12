@@ -1,5 +1,7 @@
 # CXW - Multi-Agent Orchestration Platform
 
+[中文文档](README.zh-CN.md)
+
 **CXW** is a local-first multi-agent orchestration platform for software engineering. The
 name comes from **Codex Workspaces Agent**: Codex-powered agents coordinated inside
 durable local workspaces. The PyPI package is published as `cxwa` because the shorter

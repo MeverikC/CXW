@@ -25,14 +25,31 @@ jobs:
           python-version: ${{ matrix.python-version }}
           cache: pip
 
+      - name: Upgrade packaging tools
+        run: python -m pip install --upgrade pip setuptools wheel
+
       - name: Install package
-        run: python -m pip install -e ".[dev]"
+        run: python -m pip install -e ".[dev,publish]"
+
+      - name: Check Python 3.11 syntax compatibility
+        run: |
+          python - <<'PY'
+          import ast
+          from pathlib import Path
+
+          for root in (Path("src"), Path("tests")):
+              for path in root.rglob("*.py"):
+                  ast.parse(
+                      path.read_text(encoding="utf-8"),
+                      filename=str(path),
+                      feature_version=(3, 11),
+                  )
+          PY
 
       - name: Run tests
         run: PYTHONDONTWRITEBYTECODE=1 python -m pytest -p no:cacheprovider
 
       - name: Build distributions
         run: |
-          python -m pip install build twine
           python -m build
           python -m twine check dist/*
