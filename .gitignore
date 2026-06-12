@@ -1,0 +1,61 @@
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Test, lint, type-check, and coverage caches
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.pyre/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+
+# Build and packaging outputs
+build/
+dist/
+site/
+*.egg-info/
+*.egg
+.eggs/
+.hatch/
+.tox/
+.nox/
+
+# Virtual environments and local toolchains
+.venv/
+venv/
+env/
+ENV/
+.python-version
+
+# Local CXW/Codex runtime state and credentials
+.cxw/
+.codex/
+**/.cxw/
+**/.codex/
+events.ndjson
+state.sqlite3
+state.sqlite3-*
+daemon.stdout.log
+daemon.stderr.log
+
+# Demo/runtime output that may contain generated worktrees or credentials
+demo/
+
+# Editor, OS, and local scratch files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*.tmp
+*.log
+
+# Local environment files
+.env
+.env.*
+!.env.example
